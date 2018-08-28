@@ -1,0 +1,51 @@
+{
+  "name": "test-docgen",
+  "version": "1.0.0",
+  "description": "Testing some docgen stuff",
+  "bin": {
+    "test-docgen": "bin/test-docgen",
+    "serve-docgen": "bin/serve-docgen"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development --config ./cfg/webpack.config.js",
+    "docs": "webpack-dev-server --config ./cfg/webpack.config.js --open",
+    "server": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hbuchel/test-docgen.git"
+  },
+  "author": "Heather Buchel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hbuchel/test-docgen/issues"
+  },
+  "homepage": "https://github.com/hbuchel/test-docgen#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@reach/router": "^1.1.1",
+    "babel-loader": "^8.0.0",
+    "chalk": "^2.4.1",
+    "emotion": "^9.2.6",
+    "html-webpack-plugin": "^3.2.0",
+    "minimist": "^1.2.0",
+    "react-docgen": "^2.21.0",
+    "react-dom": "^16.4.2",
+    "react-emotion": "^9.2.6",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.6"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.4.2"
+  }
+}
