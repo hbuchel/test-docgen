@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production --config ./cfg/webpack.config.js",
     "dev": "webpack --mode development --config ./cfg/webpack.config.js",
     "docs": "webpack-dev-server --config ./cfg/webpack.config.js --open",
     "server": "node server.js"
@@ -24,11 +25,13 @@
   "homepage": "https://github.com/hbuchel/test-docgen#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@reach/router": "^1.1.1",
     "babel-loader": "^8.0.0",
     "chalk": "^2.4.1",
+    "chokidar": "^2.0.4",
     "emotion": "^9.2.6",
     "html-webpack-plugin": "^3.2.0",
     "minimist": "^1.2.0",
@@ -41,8 +44,11 @@
   },
   "babel": {
     "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
+      "@babel/env",
+      "@babel/react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
     ]
   },
   "dependencies": {

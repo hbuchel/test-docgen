@@ -11,9 +11,8 @@ injectGlobal`
   }
   body {
     margin: 0;
+    font-family: 'Amazon Ember', 'Arial', sans-serif;
   }
 `
-
-
 
 render(<App />, document.getElementById('root'));

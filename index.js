@@ -6,10 +6,13 @@ const minimist = require('minimist');
 const chalk = require('chalk');
 const docgen = require('react-docgen');
 const parse = require('react-docgen').parse;
+const chokidar = require('chokidar');
 
 module.exports = () => {
   // Get arguments passed to the module
   const args = minimist(process.argv.slice(2))
+  console.log(args);
+
   
   // Return an error if the --dir argument is not supplied.
   if (!args.dir) {
@@ -20,8 +23,20 @@ module.exports = () => {
   // Setup paths based on arguments passed
   const paths = {
     components: path.join(process.cwd(), args.dir),
-    data: args.data ? path.join(process.cwd(), args.data, 'componentData.js') : path.join(process.cwd(), '/src/data/componentData.js'),
+    data: './src/data/component.js',
     output: args.output ? path.join(process.cwd(), args.output) : path.join(process.cwd(), '/dist/docs')
+  }
+
+  
+  if (args.watch) {
+    // Regenerate component metadata when components or examples change.
+    chokidar.watch([paths.components]).on('change', function(event, path) {
+
+      generate(paths);
+    });
+  } else {
+    // Generate component metadata
+    generate(paths);
   }
 
   generate(paths);
